@@ -25,6 +25,11 @@
         "contract_decimals": 6
       },
       {
+        "contract_address": "0x52484e1ab2e2b22420a25c20fa49e173a26202cd",
+        "chain_id": 42170,
+        "contract_decimals": 6
+      },
+      {
         "contract_address": "0x94b008aa00579c1307b0ef2c499ad98a8ce58e58",
         "chain_id": 10,
         "contract_decimals": 6
@@ -56,7 +61,7 @@
         "contract_address": "0xb44a9b6905af7c801311e8f4e76932ee959c663c",
         "chain_id": 1285,
         "contract_decimals": 6,
-        "symbol": "madUSDT"
+        "symbol": "USDT"
       },
       {
         "contract_address": "0xfadbbf8ce7d5b7041be672561bba99f79c532e10",
@@ -132,6 +137,11 @@
         "contract_decimals": 6
       },
       {
+        "contract_address": "0x750ba8b76187092b0d1e87e28daaf484d1b5273b",
+        "chain_id": 42170,
+        "contract_decimals": 6
+      },
+      {
         "contract_address": "0x7f5c764cbc14f9669b88837ca1490cca17c31607",
         "chain_id": 10,
         "contract_decimals": 6
@@ -162,7 +172,7 @@
         "contract_address": "0xe3f5a90f9cb311505cd691a46596599aa1a0ad7d",
         "chain_id": 1285,
         "contract_decimals": 6,
-        "symbol": "madUSDC"
+        "symbol": "USDC"
       },
       {
         "contract_address": "0x620fd5fa44be6af63715ef4e65ddfa0387ad13f5",
@@ -239,6 +249,11 @@
       },
       {
         "contract_address": "0xda10009cbd5d07dd0cecc66161fc93d7c9000da1",
+        "chain_id": 42170,
+        "contract_decimals": 18
+      },
+      {
+        "contract_address": "0xda10009cbd5d07dd0cecc66161fc93d7c9000da1",
         "chain_id": 10,
         "contract_decimals": 18
       },
@@ -270,7 +285,7 @@
         "contract_address": "0x80a16016cc4a2e6a2caca8a4a498b1699ff0f844",
         "chain_id": 1285,
         "contract_decimals": 18,
-        "symbol": "madDAI"
+        "symbol": "DAI"
       },
       {
         "contract_address": "0x94ba7a27c7a95863d1bdc7645ac2951e0cca06ba",
@@ -348,6 +363,11 @@
       },
       {
         "contract_address": "0x0000000000000000000000000000000000000000",
+        "chain_id": 42170,
+        "contract_decimals": 18
+      },
+      {
+        "contract_address": "0x0000000000000000000000000000000000000000",
         "chain_id": 10,
         "contract_decimals": 18
       },
@@ -378,7 +398,7 @@
         "contract_address": "0x639a647fbe20b6c8ac19e48e2de44ea792c62c5c",
         "chain_id": 1285,
         "contract_decimals": 18,
-        "symbol": "madWETH"
+        "symbol": "WETH"
       },
       {
         "contract_address": "0xa722c13135930332eb3d749b2f0906559d2c5b99",
@@ -484,7 +504,7 @@
         "contract_address": "0x6ab6d61428fde76768d7b45d8bfeec19c6ef91a8",
         "chain_id": 1285,
         "contract_decimals": 8,
-        "symbol": "madWBTC"
+        "symbol": "WBTC"
       },
       {
         "contract_address": "0x33284f95ccb7b948d9d352e1439561cf83d8d00d",
@@ -683,6 +703,43 @@
       },
       {
         "contract_address": "0x63e62989d9eb2d37dfdb1f93a22f063635b07d51",
+        "chain_id": 100,
+        "contract_decimals": 18
+      }
+    ]
+  },
+  {
+    "id": "fraction",
+    "symbol": "FRACTION",
+    "image": "/logos/assets/fraction.png",
+    "contracts": [
+      {
+        "contract_address": "0xbd80cfa9d93a87d1bb895f810ea348e496611cd4",
+        "chain_id": 56,
+        "contract_decimals": 18
+      },
+      {
+        "contract_address": "0xbd80cfa9d93a87d1bb895f810ea348e496611cd4",
+        "chain_id": 137,
+        "contract_decimals": 18
+      },
+      {
+        "contract_address": "0x2bf2ba13735160624a0feae98f6ac8f70885ea61",
+        "chain_id": 42161,
+        "contract_decimals": 18
+      },
+      {
+        "contract_address": "0xbd80cfa9d93a87d1bb895f810ea348e496611cd4",
+        "chain_id": 10,
+        "contract_decimals": 18
+      },
+      {
+        "contract_address": "0xbd80cfa9d93a87d1bb895f810ea348e496611cd4",
+        "chain_id": 43114,
+        "contract_decimals": 18
+      },
+      {
+        "contract_address": "0x2bf2ba13735160624a0feae98f6ac8f70885ea61",
         "chain_id": 100,
         "contract_decimals": 18
       }

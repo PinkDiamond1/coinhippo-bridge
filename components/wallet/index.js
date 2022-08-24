@@ -8,6 +8,8 @@ import WalletLink from 'walletlink'
 import { providers, utils } from 'ethers'
 import { IoWalletOutline } from 'react-icons/io5'
 
+import { equals_ignore_case } from '../../lib/utils'
+import blocked_addresses from '../../config/blocked_addresses.json'
 import { WALLET_DATA, WALLET_RESET } from '../../reducers/types'
 
 const providerOptions = {
@@ -19,6 +21,7 @@ const providerOptions = {
         56: 'https://bsc-dataseed.binance.org',
         137: 'https://polygon-rpc.com',
         42161: 'https://arb1.arbitrum.io/rpc',
+        42170: 'https://nova.arbitrum.io/rpc',
         10: 'https://mainnet.optimism.io',
         43114: 'https://api.avax.network/ext/bc/C/rpc',
         250: 'https://rpc.ftm.tools',
@@ -71,6 +74,7 @@ const chainIdToNetwork = chain_id => {
     56: 'binance',
     137: 'matic',
     42161: 'arbitrum',
+    // 42170: 'arbitrum-nova',
     10: 'optimism',
     43114: 'avalanche-fuji-mainnet',
     250: 'fantom',
@@ -119,6 +123,40 @@ export default function Wallet({ chainIdToConnect, main, hidden, disabled = fals
           value: { default_chain_id: defaultChainId },
         })
       }
+
+      // if (window.ethereum) {
+      //   providerOptions['custom-tally'] = {
+      //     display: {
+      //       name: 'Tally',
+      //       logo: '/logos/wallets/tally.svg',
+      //     },
+      //     package: async () => {
+      //       let provider = null
+      //       if (typeof window.ethereum !== 'undefined') {
+      //         provider = window.ethereum
+      //         try {
+      //           await provider.request({ method: 'eth_requestAccounts' })
+      //         } catch (error) {
+      //           throw new Error('User Rejected')
+      //         }
+      //       } else if (window.web3) {
+      //         provider = window.web3.currentProvider
+      //       } else if (window.celo) {
+      //         provider = window.celo
+      //       } else {
+      //         throw new Error('No Web3 Provider found')
+      //       }
+      //       return provider
+      //     },
+      //     connector: async (ProviderPackage, options) => {
+      //       const provider = new ProviderPackage(options)
+      //       try {
+      //         await provider.enable()
+      //       } catch (error) {}
+      //       return provider
+      //     },
+      //   }
+      // }
 
       if (window.clover) {
         providerOptions['custom-clover'] = {
@@ -189,16 +227,23 @@ export default function Wallet({ chainIdToConnect, main, hidden, disabled = fals
     const network = await web3Provider.getNetwork()
     const address = await signer.getAddress()
 
-    dispatch({
-      type: WALLET_DATA,
-      value: {
-        provider,
-        web3_provider: web3Provider,
-        signer,
-        chain_id: network.chainId,
-        address,
-      },
-    })
+    if (blocked_addresses?.findIndex(a => equals_ignore_case(a, address)) > -1) {
+      dispatch({
+        type: WALLET_RESET,
+      })
+    }
+    else {
+      dispatch({
+        type: WALLET_DATA,
+        value: {
+          provider,
+          web3_provider: web3Provider,
+          signer,
+          chain_id: network.chainId,
+          address,
+        },
+      })
+    }
   }, [web3Modal])
 
   const disconnect = useCallback(async (e, is_reestablish) => {
